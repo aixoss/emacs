@@ -64,7 +64,7 @@ DOCMISC_W32 = @DOCMISC_W32@
 INFO_COMMON = ada-mode auth autotype bovine calc ccmode cl \
 	dbus dired-x ebrowse ede ediff edt eieio \
 	emacs-mime epa erc ert eshell eudc efaq eww \
-	flymake forms gnus emacs-gnutls htmlfontify idlwave ido info.info \
+	flymake forms gnus emacs-gnutls htmlfontify idlwave ido emacs.info.info \
 	mairix-el message mh-e newsticker nxml-mode octave-mode \
 	org pcl-cvs pgg rcirc remember reftex sasl \
 	sc semantic ses sieve smtpmail speedbar srecode todo-mode tramp \
@@ -81,7 +81,7 @@ INFO_TARGETS = $(INFO_COMMON) efaq-w32
 # There are some naming differences between the info targets and the other
 # targets, so let's resolve them here.
 TARGETS_1 = $(INFO_INSTALL:ccmode=cc-mode)
-TARGETS = $(TARGETS_1:info.info=info)
+TARGETS = $(TARGETS_1:emacs.info.info=info)
 
 DVI_TARGETS  = $(TARGETS:=.dvi)
 HTML_TARGETS = $(TARGETS:=.html)
@@ -502,7 +502,7 @@ ido.html: $(ido_deps)
 
 info_deps = ${srcdir}/info.texi ${gfdl}
 # Avoid name clash with overall "info" target.
-info.info : $(buildinfodir)/info$(INFO_EXT)
+emacs.info.info : $(buildinfodir)/info$(INFO_EXT)
 # NB this one needs --no-split even without a .info extension.
 $(buildinfodir)/info$(INFO_EXT): $(info_deps)
 	$(mkinfodir)
